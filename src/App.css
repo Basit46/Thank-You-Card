@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: white;
+}
+
+/* The cover page, it slides up after 2s */
+.cover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  animation: slide-up 2s linear forwards 2s;
+}
+@keyframes slide-up {
+  to {
+    bottom: 100%;
+  }
+}
+.cover .times-svg {
+  color: white;
+  height: 150px;
+  width: 150px;
+}
+.cover .revivar-logo,
+.cover .basit-logo {
+  height: 400px;
+  width: 400px;
+}
+
+/* The main section */
+.main {
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  animation: fade-out 2s linear forwards 4s;
+}
+@keyframes fade-out {
+  to {
+    opacity: 1;
+  }
+}
+
+/* home page */
+.home {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  align-items: center;
+}
+.home h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+.home p {
+  color: red;
+  font-size: 1.1rem;
+}
+.home .img-container {
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+  justify-content: center;
+  grid-gap: 20px;
+}
+.home .img-container img {
+  width: 300px;
+  height: 300px;
+}
+.home .img-container img:hover {
+  outline: 4px white solid;
+}
+
+/* Name input page */
+.name-input-page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.name-input-page h1 {
+  margin-bottom: 20px;
+  font-size: 7vw;
+}
+.name-input-page input {
+  width: 300px;
+  background-color: transparent;
+  border: 2px white solid;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 40px;
+}
+.name-input-page button {
+  background-color: blue;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 20px;
+  transition: 0.3s;
+}
+.name-input-page button:hover {
+  background-color: white;
+  color: blue;
+}
+
+/* The result page */
+.result {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+.result .container {
+  z-index: 999;
+  color: black;
+  display: grid;
+  place-items: center;
+}
+.result .container div {
+  position: relative;
+  width: 300px;
+  height: 375px;
+}
+.result .container div img {
+  height: 100%;
+  width: 100%;
+}
+.result .container div p {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-transform: uppercase;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.5rem;
+  -webkit-text-stroke: 1px black;
+}
+.result .container div .thanks {
+  top: 20px;
+}
+.result .container div .name {
+  bottom: 20px;
+}
+.result .container button {
+  margin: 20px 0px 30px 0px;
+  padding: 10px;
+  border: none;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.result .container button:active {
+  background-color: red;
+}
+.result .back-link {
+  color: white;
+}
+
+/* Other pages are full responsive without the use of media query apart from the cover page */
+@media only screen and (max-width: 900px) {
+  .cover {
+    flex-direction: column;
+    justify-content: space-between;
+    bottom: 7%;
+  }
+  .cover .revivar-logo,
+  .cover .basit-logo {
+    height: 300px;
+    width: 300px;
+  }
+  .cover .times-svg {
+    height: 300px;
+    width: 300px;
+  }
+}
